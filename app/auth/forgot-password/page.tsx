@@ -14,7 +14,7 @@ export default function ForgotPasswordPage() {
 			<Heading>Recupera tu contraseña</Heading>
 			<ForgotPasswordForm />
 
-			<nav className="mt-20 flex justify-between">
+			<nav className="mt-8 flex justify-between">
 				<Link href="/auth/login" className="font-bold">
 					Iniciar sesion
 				</Link>

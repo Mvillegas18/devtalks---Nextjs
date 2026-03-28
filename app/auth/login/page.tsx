@@ -15,7 +15,7 @@ export default function LoginPage() {
 
 			<LoginForm />
 
-			<nav className="mt-20 flex justify-between">
+			<nav className="mt-8 flex justify-between">
 				<Link href="/auth/register" className="font-bold">
 					Crear cuenta
 				</Link>
