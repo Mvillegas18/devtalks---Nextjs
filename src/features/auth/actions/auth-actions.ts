@@ -13,5 +13,6 @@ export async function signUpAction(input: SignUpInput) {
 		}
 	}
 
-	await authService.register(data)
+	const response = await authService.register(data)
+	return response
 }

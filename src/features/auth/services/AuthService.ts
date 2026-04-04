@@ -17,6 +17,12 @@ class AuthService {
 				password,
 			},
 		})
+
+		return {
+			error: '',
+			success:
+				'Usuario registrado exitosamente, revisa tu correo para verificar tu cuenta.',
+		}
 	}
 }
 
