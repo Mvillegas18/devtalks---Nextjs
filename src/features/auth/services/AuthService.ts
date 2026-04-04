@@ -1,5 +1,5 @@
-import { auth } from '@/src/lib/auth.js'
-import type { SignUpInput } from '../shemas/authSchema.js'
+import { auth } from '@/src/lib/auth'
+import type { SignUpInput } from '../shemas/authSchema'
 
 class AuthService {
 	async register(credentials: SignUpInput) {
@@ -20,8 +20,7 @@ class AuthService {
 
 		return {
 			error: '',
-			success:
-				'Usuario registrado exitosamente, revisa tu correo para verificar tu cuenta.',
+			success: 'Usuario registrado exitosamente, revisa tu correo.',
 		}
 	}
 }
