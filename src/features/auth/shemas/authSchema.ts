@@ -22,4 +22,14 @@ export const SignUpSchema = BaseAuthSchema.pick({
 	path: ['passwordConfirmation'],
 })
 
+export const SignInSchema = BaseAuthSchema.pick({
+	email: true,
+}).extend({
+	password: z
+		.string()
+		.trim()
+		.min(8, { error: 'El contraseña no puede ir vacía' }),
+})
+
 export type SignUpInput = z.infer<typeof SignUpSchema>
+export type SignInInput = z.infer<typeof SignInSchema>
