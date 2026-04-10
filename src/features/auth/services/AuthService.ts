@@ -68,7 +68,7 @@ class AuthService {
 				const messages: Record<number, string> = {
 					400: 'Solicitud inválida',
 					401: 'Password incorrecto',
-					403: 'Acceso denegado',
+					403: 'Cuenta no verificada, revisa tu correo',
 					404: 'Usuario no encontrado',
 					409: 'El usuario ya existe',
 					429: 'Demasiados intentos, intenta más tarde',
