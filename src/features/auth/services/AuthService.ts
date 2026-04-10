@@ -1,6 +1,8 @@
 import { auth } from '@/src/lib/auth'
-import type { SignUpInput } from '../shemas/authSchema'
+import type { SignInInput, SignUpInput } from '../shemas/authSchema'
 import { authRepository, IAuthRepository } from './AuthRepository'
+import { headers } from 'next/headers'
+import { APIError } from 'better-auth'
 
 class AuthService {
 	constructor(private authRepository: IAuthRepository) {}
@@ -31,6 +33,60 @@ class AuthService {
 		return {
 			error: '',
 			success: 'Usuario registrado exitosamente, revisa tu correo.',
+		}
+	}
+
+	async login(credentials: SignInInput) {
+		const { email, password } = credentials
+
+		//Verificar si el usuario existe.
+		const user = await this.authRepository.userExist(email)
+		if (!user) {
+			return {
+				error: 'El usuario no existe',
+				success: '',
+			}
+		}
+
+		// Verificar su password y si confirmo su cuenta.
+
+		try {
+			await auth.api.signInEmail({
+				body: {
+					email,
+					password,
+					callbackURL: '/dashboard',
+				},
+				headers: await headers(),
+			})
+			return {
+				error: '',
+				success: 'Sesión iniciada exitosamente',
+			}
+		} catch (error) {
+			if (error instanceof APIError) {
+				const messages: Record<number, string> = {
+					400: 'Solicitud inválida',
+					401: 'Password incorrecto',
+					403: 'Acceso denegado',
+					404: 'Usuario no encontrado',
+					409: 'El usuario ya existe',
+					429: 'Demasiados intentos, intenta más tarde',
+					500: 'Error interno del servidor',
+					503: 'Servicio no disponible',
+				}
+				const errorMessage = messages[error.statusCode]
+				if (errorMessage) {
+					return {
+						error: errorMessage,
+						success: '',
+					}
+				}
+			}
+			return {
+				error: 'Ocurrió un error inesperado',
+				success: '',
+			}
 		}
 	}
 }
