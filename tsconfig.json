@@ -20,6 +20,7 @@
 		],
 		"paths": {
 			"@/*": ["./*"],
+			"@/shared*": ["./src/shared/*"],
 			"@/components/*": ["./src/shared/components/*"],
 			"@/lib/*": ["./src/lib/*"]
 		}
