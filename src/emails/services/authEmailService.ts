@@ -1,10 +1,10 @@
-import { emailConfig } from '../config/config.js'
+import { emailConfig } from '../config/config'
 import {
 	renderVerificationEmail,
 	renderVerificationEmailText,
-} from '../templates/VerificationEmail.js'
-import type { VerificationEmailData } from '../types/emails.js'
-import { EmailService } from './emailService.js'
+} from '../templates/VerificationEmail'
+import type { VerificationEmailData } from '../types/emails'
+import { EmailService } from './emailService'
 
 export class AuthEmailService {
 	static async sendVerificationEmail(
