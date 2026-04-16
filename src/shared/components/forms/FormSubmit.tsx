@@ -7,6 +7,7 @@ export function FormSubmit(props: Props) {
 		<input
 			{...props}
 			type="submit"
-			className="bg-pink-600 w-full p-2 uppercase font-black cursor-pointer mt-5 text-white"></input>
+			className="bg-pink-600 w-full p-2 uppercase font-black cursor-pointer mt-5 text-white"
+		/>
 	)
 }
