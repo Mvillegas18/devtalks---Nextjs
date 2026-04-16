@@ -1,5 +1,5 @@
 import { transporter } from '@/lib/nodemailer'
-import { EmailOptions } from '@/src/emails/types/emails'
+import type { EmailOptions } from '@/src/emails/types/emails'
 
 export class EmailService {
 	static async send(options: EmailOptions): Promise<void> {
