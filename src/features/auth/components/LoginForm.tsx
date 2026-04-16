@@ -12,6 +12,7 @@ import { useForm } from 'react-hook-form'
 import { type SignInInput, SignInSchema } from '../shemas/authSchema'
 import { signInAction } from '@/src/features/auth/actions/auth-actions'
 import { toast } from 'react-hot-toast/headless'
+import { redirect } from 'next/navigation'
 
 export function LoginForm() {
 	const {
@@ -31,6 +32,7 @@ export function LoginForm() {
 		}
 		if (success) {
 			toast.success(success)
+			redirect('/dashboard')
 		}
 	}
 
