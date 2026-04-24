@@ -1,5 +1,9 @@
 import { auth } from '@/src/lib/auth'
-import type { SignInInput, SignUpInput } from '../shemas/authSchema'
+import type {
+	ForgotPasswordInput,
+	SignInInput,
+	SignUpInput,
+} from '../shemas/authSchema'
 import { authRepository, IAuthRepository } from './AuthRepository'
 import { headers } from 'next/headers'
 import { APIError } from 'better-auth'
@@ -89,6 +93,25 @@ class AuthService {
 				error: 'Ocurrió un error inesperado',
 				success: '',
 			}
+		}
+	}
+
+	async requestPasswordReset(input: ForgotPasswordInput) {
+		const user = await this.authRepository.userExist(input.email)
+		if (!user) {
+			return {
+				error: 'El usuario no existe',
+				success: '',
+			}
+		}
+
+		await auth.api.requestPasswordReset({
+			body: { email: input.email },
+		})
+
+		return {
+			error: '',
+			success: 'Hemos enviado un email con instrucciones',
 		}
 	}
 }
