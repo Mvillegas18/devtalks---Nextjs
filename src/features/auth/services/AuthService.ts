@@ -1,6 +1,7 @@
 import { auth } from '@/src/lib/auth'
 import type {
 	ForgotPasswordInput,
+	ResetPasswordInput,
 	SignInInput,
 	SignUpInput,
 } from '../shemas/authSchema'
@@ -112,6 +113,34 @@ class AuthService {
 		return {
 			error: '',
 			success: 'Hemos enviado un email con instrucciones',
+		}
+	}
+
+	async confirmPasswordInput(input: ResetPasswordInput, token: string) {
+		const { newPassword } = input
+
+		try {
+			await auth.api.resetPassword({
+				body: {
+					newPassword,
+					token,
+				},
+			})
+			return {
+				error: '',
+				success: 'Contraseña restablecida exitosamente',
+			}
+		} catch (error) {
+			if (error instanceof APIError) {
+				return {
+					error: 'Token inválido o expirado',
+					success: '',
+				}
+			}
+		}
+		return {
+			error: '',
+			success: '',
 		}
 	}
 }
