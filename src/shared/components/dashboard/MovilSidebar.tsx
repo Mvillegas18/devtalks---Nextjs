@@ -1,4 +1,4 @@
-import Logo from '../ui/Logo'
+import { Logo } from '../ui/Logo'
 import DashboardNavigation from './DashboardNavigation'
 
 export default function MobileSidebar() {

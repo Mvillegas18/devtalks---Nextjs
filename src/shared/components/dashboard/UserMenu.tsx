@@ -1,4 +1,4 @@
-import { signOut } from '@/src/lib/authClient.js'
+import { signOut } from '@/src/lib/authClient'
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { Bars3Icon } from '@heroicons/react/24/outline'
 import { redirect } from 'next/navigation'

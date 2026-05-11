@@ -8,7 +8,7 @@ import {
 	TransitionChild,
 } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import Logo from '../ui/Logo'
+import { Logo } from '../ui/Logo'
 import NotificationsPanel from './NotificationsPanel'
 import UserMenu from './UserMenu'
 import MobileSidebar from './MovilSidebar'
