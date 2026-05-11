@@ -4,6 +4,8 @@ import { authService } from '../services/AuthService'
 import {
 	ForgotPasswordInput,
 	ForgotPasswordSchema,
+	ResetPasswordInput,
+	ResetPasswordSchema,
 	SignInInput,
 	SignInSchema,
 	SignUpSchema,
@@ -47,5 +49,20 @@ export async function forgotPasswordAction(input: ForgotPasswordInput) {
 	}
 
 	const response = await authService.requestPasswordReset(data)
+	return response
+}
+
+export async function setPasswordAction(
+	input: ResetPasswordInput,
+	token: string,
+) {
+	const data = ResetPasswordSchema.safeParse(input)
+	if (!data.success) {
+		return {
+			error: 'Hubo un error',
+			success: '',
+		}
+	}
+	const response = await authService.confirmPasswordInput(data.data, token)
 	return response
 }
