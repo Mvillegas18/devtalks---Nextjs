@@ -1,4 +1,4 @@
-import { requireAuth } from '@/src/lib/auth-server.js'
+import { requireAuth } from '@/src/lib/auth-server'
 import { Heading } from '@/src/shared/components/typography/Heading'
 import { redirect } from 'next/navigation'
 
@@ -7,7 +7,7 @@ export default async function Dashboard() {
 
 	if (!isAuth) redirect('/auth/login')
 	return (
-		<div className="min-h-screen flex items-center justify-center">
+		<div className="max-h-screen flex justify-center">
 			<Heading className="text-4xl font-bold">Panel de administracion</Heading>
 		</div>
 	)

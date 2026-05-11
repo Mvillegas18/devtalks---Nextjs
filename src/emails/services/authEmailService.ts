@@ -2,7 +2,7 @@ import { emailConfig } from '../config/config'
 import {
 	renderPasswordResetEmail,
 	renderPasswordResetEmailText,
-} from '../templates/PasswordResetEmail.js'
+} from '../templates/PasswordResetEmail'
 import {
 	renderVerificationEmail,
 	renderVerificationEmailText,

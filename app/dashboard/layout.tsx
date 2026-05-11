@@ -1,4 +1,4 @@
-import DashboardPanel from '@/src/shared/components/dashboard/DashboardPanel.js'
+import DashboardPanel from '@/src/shared/components/dashboard/DashboardPanel'
 
 export default function DashboardLayout({
 	children,
