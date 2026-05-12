@@ -1,0 +1,9 @@
+import { TextareaHTMLAttributes } from 'react'
+
+type Props = TextareaHTMLAttributes<HTMLTextAreaElement>
+
+export function FormTextArea(props: Props) {
+	return (
+		<textarea className="border border-slate-200 w-full p-2 h-40" {...props} />
+	)
+}
