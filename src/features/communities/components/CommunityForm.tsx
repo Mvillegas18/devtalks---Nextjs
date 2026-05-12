@@ -2,7 +2,7 @@ import { FormInput } from '@/src/shared/components/forms/FormInput'
 import { FormLabel } from '@/src/shared/components/forms/FormLabel'
 import { FormTextArea } from '@/src/shared/components/forms/FormTextArea'
 
-export function CreateCommunity() {
+export function CommunityForm() {
 	return (
 		<>
 			<FormLabel htmlFor="name">Nombre de comunidad</FormLabel>
