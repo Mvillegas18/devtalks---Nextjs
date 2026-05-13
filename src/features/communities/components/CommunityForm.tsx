@@ -4,6 +4,7 @@ import { FormTextArea } from '@/src/shared/components/forms/FormTextArea'
 import { useFormContext } from 'react-hook-form'
 import { type CommunityInput } from '../schema/communitySchema'
 import { FormError } from '@/src/shared/components/forms/FormError'
+import { UploadImage } from '@/src/shared/components/upload/UploadImage'
 
 export function CommunityForm() {
 	const {
@@ -20,8 +21,10 @@ export function CommunityForm() {
 			/>
 			{errors.name && <FormError>{errors.name.message}</FormError>}
 
-			<FormLabel htmlFor="description">Descripción</FormLabel>
+			<FormLabel htmlFor="image">Imagen de comunidad</FormLabel>
+			<UploadImage />
 
+			<FormLabel htmlFor="description">Descripción</FormLabel>
 			<FormTextArea
 				id="description"
 				placeholder="Descripción de la comunidad"
