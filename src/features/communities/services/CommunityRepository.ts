@@ -1,9 +1,11 @@
 import { db } from '@/src/db/index'
 import type { InsertCommunity, SelectCommunity } from '../types/community'
 import { community } from '@/src/db/schema'
+import { eq } from 'drizzle-orm'
 
 export interface ICommunityRepository {
 	create(data: InsertCommunity): Promise<SelectCommunity>
+	findByUser(userId: string, limit?: number): Promise<SelectCommunity[]>
 }
 
 class CommunityRepository implements ICommunityRepository {
@@ -11,6 +13,16 @@ class CommunityRepository implements ICommunityRepository {
 		// Implementation for creating a community
 		const [result] = await db.insert(community).values(data).returning()
 		return result
+	}
+
+	async findByUser(userId: string, limit = 10): Promise<SelectCommunity[]> {
+		// Implementation for fetching communities that a user has joined
+		const communities = await db
+			.select()
+			.from(community)
+			.where(eq(community.createdBy, userId))
+			.limit(limit)
+		return communities
 	}
 }
 
