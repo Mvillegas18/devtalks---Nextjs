@@ -6,7 +6,7 @@ export const CommunitySchema = z.object({
 		.min(3, { error: 'El Titulo de la Comunidad es Obligatorio' }),
 	description: z.string().min(10, { error: 'La Descripción es obligatoria' }),
 	image: z.url({
-		protocol: /^https?$:\/\/.+/,
+		protocol: /^https?$/,
 		hostname: z.regexes.domain,
 		error: 'La Imagen es obligatoria',
 	}),

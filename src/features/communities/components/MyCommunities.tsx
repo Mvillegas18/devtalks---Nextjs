@@ -2,7 +2,7 @@ import { requireAuth } from '@/src/lib/auth-server'
 import { redirect } from 'next/navigation'
 import { communityService } from '../services/CommunityService'
 import Link from 'next/link'
-import CommunityItem from './CommunityItem.js'
+import CommunityItem from './CommunityItem'
 
 export async function MyCommunities() {
 	const { session } = await requireAuth()

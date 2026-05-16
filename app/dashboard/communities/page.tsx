@@ -1,4 +1,4 @@
-import { MyCommunities } from '@/src/features/communities/components/MyCommunities.js'
+import { MyCommunities } from '@/src/features/communities/components/MyCommunities'
 import { Heading } from '@/src/shared/components/typography/Heading'
 import { generatePageTitle } from '@/src/shared/utils/metadata'
 import { Metadata } from 'next'
